@@ -1,0 +1,203 @@
+Rinkerby, ThamesBoats: 0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+
+
+
+/**
+  Notes: 
+
+  Contracts and libraries are deployed on Rinkerby
+  Optimizer: enabled
+  Runs: 200
+ 
+
+  ReentrancyGuard
+  Address: 0x974E3586b64953046a6081e124863Fa4812dD69f
+  Code: https://rinkeby.etherscan.io/address/0x974e3586b64953046a6081e124863fa4812dd69f#code
+
+  SafeMath
+  Address: 0xbb768f445EfF173aD18262A550bF6e208eA1Be43
+
+  ThamesBoats:
+  0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+
+
+  Note:
+  The code for ReentrancyGuard has been added to EtherScan.
+
+  Attempts to add the same code to EtherScan SafeMath failed, despite following the same procedure (and attempting the same from Remix). The error received was:
+
+  >> Sorry! The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code for Address 0xbb768f445EfF173aD18262A550bF6e208eA1Be43.
+  >> Unable to Verify Contract Source Code.
+
+  Attempts to enter the Solidity contract code failed on EtherScan, ensuring to match optimization and compiler versions (v0.5.2+commit.1df8f40c).
+
+  ThamesBoats is dependant on SafeMath, and upload was not possible.
+
+*/
+
+
+
+/**
+  Truffle output:
+
+
+ $ truffle deploy --network rinkerby
+
+
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+Try: npm install --save truffle-hdwallet-provider@web3-one
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'rinkerby-fork'
+> Network id:      4
+> Block gas limit: 7043104
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.099483804
+   > gas used:            258098
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000516196 ETH
+
+   -------------------------------------
+   > Total cost:         0.000516196 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'ReentrancyGuard'
+   ---------------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.099308218
+   > gas used:            60765
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00012153 ETH
+
+
+   Deploying 'SafeMath'
+   --------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.099158466
+   > gas used:            74876
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000149752 ETH
+
+
+   Deploying 'ThamesBoats'
+   -----------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.088508384
+   > gas used:            5325041
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.010650082 ETH
+
+   -------------------------------------
+   > Total cost:         0.010921364 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.01143756 ETH
+
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+Try: npm install --save truffle-hdwallet-provider@web3-one
+
+
+Starting migrations...
+======================
+> Network name:    'rinkerby'
+> Network id:      4
+> Block gas limit: 7049981
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x294987a3059ae9e8b0410c4d1a3075b4cde731ba0155070a154ada13937fcbad
+   > Blocks: 2            Seconds: 16
+   > contract address:    0xaAece6F846882828595c05eAAaA6D999c293738d
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.09453804
+   > gas used:            273098
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00546196 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00546196 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'ReentrancyGuard'
+   ---------------------------
+   > transaction hash:    0x4e16007820a5791f4d33c7d93b8dc58dfecb2f34be110b2df5589b80dcf20b0d
+   > Blocks: 0            Seconds: 12
+   > contract address:    0x974E3586b64953046a6081e124863Fa4812dD69f
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.09227818
+   > gas used:            70965
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0014193 ETH
+
+
+   Deploying 'SafeMath'
+   --------------------
+   > transaction hash:    0xb2d4066ec54c9b37a302e048078bf29b8130f038a17e82ae9b5bdce728cbd088
+   > Blocks: 0            Seconds: 8
+   > contract address:    0xbb768f445EfF173aD18262A550bF6e208eA1Be43
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             2.09078066
+   > gas used:            74876
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00149752 ETH
+
+
+   Deploying 'ThamesBoats'
+   -----------------------
+   > transaction hash:    0x79fb05ed0e03f24ab2657c83566175c4eb1efab016ebc69b5ee4ce8709f995e1
+   > Blocks: 0            Seconds: 8
+   > contract address:    0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             1.98267184
+   > gas used:            5405441
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.10810882 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.11102564 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.1164876 ETH
+
+*/

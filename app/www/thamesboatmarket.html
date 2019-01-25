@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>
+    Thames Boats - a decenralised market for selling rowing boats on river
+    Thames
+  </title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/other.css" rel="stylesheet" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#hideShow").click(function () {
+        if (Number(sessionStorage.hideShow) === 0) {
+          $("#controlsPage").hide();
+          $("#boatMarketPage").show();
+          sessionStorage.hideShow = 1;
+          location.reload(false);
+        } else {
+          $("#controlsPage").show();
+          $("#boatMarketPage").hide();
+          sessionStorage.hideShow = 0;
+          location.reload(false);
+        }
+      });
+    });
+
+    function updatePage() {
+      if (Number(sessionStorage.hideShow) === 0) {
+        $("#controlsPage").hide();
+        $("#boatMarketPage").show();
+      } else if (Number(sessionStorage.hideShow) === 1) {
+        $("#controlsPage").show();
+        $("#boatMarketPage").hide();
+      }
+    }
+    window.onload = updatePage;
+  </script>
+
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">Thames Boats</h1>
+          <h4 class="text-center">A market for rowing clubs on the river Thames to sell boats</h4>
+        </div>
+      </div> <!-- CLOSE ROW -->
+
+
+      <div id="headerBar">
+
+
+
+
+<span style="color: darkgray">
+  <a href="index.html">About Thames Boats</a> |
+  <b>Thames Boat Market</b> |
+  <a href="sample_data.html">Example application data</a> 
+
+</span>
+<br /><br />
+
+        <span style="color: darkgray">
+          <h5>
+            Contract address:
+            <span id="contract-address">
+              <!--CONTRACT ADDRESS--></span>
+          </h5>
+      
+        </span>
+        <h5>
+          Your account address:
+          <span id="account-address">
+            <!--ACCOUNT ADDRESS--></span>
+        </h5>
+        <h5>Your account role(s):
+          <span id="account-roles">
+            <!--ACCOUNT ROLES--></span>
+        </h5>
+
+        <h5>Market Status: <span id="market-status">
+            <!--MARKET STATUS>--></span> </h5>
+        <h5 style="color: gray">Note: <i>all accounts can be buyers - buyer is not listed as a role.</i></h5>
+      </div> <!-- CLOSE HEADER BAR -->
+
+
+      <button id="hideShow">Hide / Show controls</button>
+
+
+      <div id="controlsPage" class="controlsPage">
+        <br />
+        <div id="ownerControls" style="display:none;">
+          <h4 style="padding-left:0px; ">Owner controls</h4>
+          <h5>Here you can add and remove the Market Admins role. Market Admins can add and remove Club Owners.</h5>
+
+          <!-- ADD MARKET ADMIN -->
+          <form id="input-addMarketAdmin">
+            <label align="right" style="width: 240px;">Add Market Admin</label>
+            <input id="data-addMarketAdmin" placeholder="Ethereum Address - market admin" type="text" size="53"
+              autocomplete="off">
+            <button id="btn-addMarketAdmin" class="btn-addMarketAdmin">Add Market Admin</button>
+            <span id="addMarketAdmin-result" style="padding-left:5px;"></span>
+          </form>
+
+          <!-- REMOVE MARKET ADMIN -->
+          <form id="input-removeMarketAdmin">
+            <label align="right" style="width: 240px;">Remove Market Admin</label>
+            <input id="data-removeMarketAdmin" placeholder="Ethereum Address - market admin" type="text" size="53"
+              autocomplete="off">
+            <button id="btn-removeMarketAdmin" class="btn-removeMarketAdmin">Remove Market Admin</button>
+            <span id="removeMarketAdmin-result" style="padding-left:5px;"></span>
+          </form>
+
+          <!-- SUSPEND / RESUME MARKET ADMIN -->
+          <form id="input-suspendMarket">
+            <label align="right" style="width: 240px;">Suspend / Resume</label>
+            <button id="btn-suspendMarket" class="btn-suspendMarket"></button>
+            <span id="suspendMarket-result" style="padding-left:5px;"></span>
+          </form>
+          <br /><br />
+
+          <!-- LIST MARKET ADMINS -->
+          <div id="listMarketAdmins" style="display: none;">
+            <h5 style="color: grey; padding-left:5px;">Accounts with the Market Admin role</h5>
+          </div>
+
+          <!-- SHOW marketAdminAddress -->
+          <div id="marketAdminsTemplate" style="display: none;">
+            <span id="marketAdminAddress" class="marketAdminAddress" style="  color: grey; padding-left:5px;"></span><br />
+          </div> <!-- marketAdminAddress -->
+
+        </div> <!-- OWNER CONTROLS -->
+
+
+        <div id="marketAdminControls" style="display:none;">
+          <h4 style="padding-left:0px;">Market Admin controls</h4>
+          <h5>Here you can add and remove the Club Owner role. A club owner may own one club.</h5>
+
+          <!-- ADD CLUB OWNER -->
+          <form id="input-addClubOwner">
+            <label align="right" style="width: 240px;">Add Club Owner</label>
+            <input id="data-addClubOwner" placeholder="Ethereum Address - club owner" type="text" size="53"
+              autocomplete="off">
+            <button id="btn-addClubOwner" class="btn-addClubOwner">Add Club Owner</button>
+            <span id="addClubOwner-result" style="padding-left:5px;"></span>
+          </form>
+
+          <!-- REMOVE CLUB OWNER -->
+          <form id="input-removeClubOwner">
+            <label align="right" style="width: 240px; ">Remove Club Owner</label>
+            <input id="data-removeClubOwner" placeholder="Ethereum Address - club owner" type="text" size="53"
+              autocomplete="off">
+            <button id="btn-removeClubOwner" class="btn-removeClubOwner">Remove Club Owner</button>
+            <span id="removeClubOwner-result" style="padding-left:5px;"></span>
+          </form>
+          <br /><br />
+
+          <!-- LIST CLUB OWNERS -->
+          <div id="listClubOwners" style="display: none;">
+            <h5 style="color: grey; padding-left:5px;">Accounts with the Club Owner role</h5>
+          </div>
+
+          <!-- SHOW clubOwnerAddress -->
+          <div id="clubOwnerTemplate" style="display: none;">
+            <span id="clubOwnerAddress" class="clubOwnerAddress" style="color: grey; padding-left:5px;"></span><br />
+          </div> <!-- clubOwnerAddress -->
+
+        </div> <!-- MARKET ADMIN CONTROL -->
+
+
+        <div id="clubOwnerControls" style="display:none;">
+          <h4 style="padding-left:0px;">Club Owner</h4>
+          <h5>Here you can: add and remove boats from your club; toggle "For Sale"/"Not For Sale" status;
+            <br />open or close your club for business; permanently close your club; see your balance and withdraw
+            funds.
+          </h5>
+          <br />
+
+          <!-- ADD BOAT CLUB  -->
+          <form id="input-addBoatClub">
+            <label align="right" style="width: 240px;">Boat Club name</label>
+            <input id="data-addBoatClubName" placeholder="e.g. Auriol Kensington Rowing Club" type="text" size="53" autocomplete="off">
+            <span id="addBoatClubName-result" class="addBoatClubName-result" style=" padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">Boat Club location</label>
+            <input id="data-addBoatClubLocation" placeholder="e.g. Puntney, SW15" type="text" size="53"
+              autocomplete="off">
+            <span id="addBoatClubLocation-result" class="addBoatClubLocation-result" style=" padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;"></label>
+            <button id="btn-addBoatClub" class="btn btn-addBoatClub">Add Boat Club</button>
+            <span id="addBoatClub-result" style="padding-left:5px;"></span>
+          </form>
+
+
+          <!-- DISPLAY MY CLUB-->
+          <form id="showMyBoatClub" style="display:none;">
+            <label align="right" style="color: grey;width: 240px;">Club ID</label>
+            <span id="showMyBoatClubId" style="color: grey; padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">Your Club name</label>
+            <span id="showMyBoatClubName" style="padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">Your Club location</label>
+            <span id="showMyBoatClubLocation" style="padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">Your Club Status</label>
+            <span id="showMyBoatClubStatus" style="padding-left:5px;"></span>
+            <br /><br />
+
+            <!-- OPEN/CLOSE CLUB--></button>
+            <span id="myClubButtons">
+              <label align="right" class="myClubButtons" style="width: 240px;">Open or Close (temporarily)</label>
+              <button id="btn-boatClubOpenClose" class="btn-boatClubOpenClose">Open / Close Club</button>
+              <br />
+
+              <label align="right" style="width: 240px;">Permanently remove club</label>
+              <button id="btn-removeBoatClub" class="btn-removeBoatClub">Permanently Remove Boat Club</button>
+              <span id="removeBoatClub-result" style="padding-left:5px;"></span>
+            </span>
+
+            <!-- YOUR CLUB BALANCE -->
+            <br /><br />
+            <table>
+              <tr>
+                <td>
+                  <label align="right" style="width: 240px;">Your club balance</label>
+                  <span id="showMyBalance" style="padding-left:5px;"></span>
+                  <span id="showMyBalance-result" style="padding-left:5px;"></span>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <button id="btn-withdrawFunds" class="btn-withdrawFunds" style="display: none;">Withdraw Funds</button>
+                  <span id="withdrawFunds-result" style="padding-left:5px;"></span>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <br />
+        </div> <!-- CLOSE CLUB OWNER CONTROLS-->
+
+
+        <!-- SHOW BOATS -->
+        <div id="showBoats" class="row" style="display: none;">
+          <h4><b>Your boats in stock</b></h4>
+        </div>
+
+        <!-- SHOW BOATS TEMPPLATE -->
+        <div id="boatTemplate" style="display: none;">
+          <table>
+            <tr>
+              <td style="width: 180px;"><strong>Name</strong>:</td>
+              <td style="width: 240px;"><span class="boatName">Empacher Racing Eight</span></td>
+              <td style="width: 140px;"><strong>Price (ETH)</strong>:</td>
+              <td><span class="boatPrice">120</span></td>
+            </tr>
+            <tr>
+              <td> <strong>Description</strong>:</td>
+              <td><span class="boatDescription">Brand new racing shell with riggers, 90kg
+                  crew weight</span></td>
+              <td><strong>Quantity in stock</strong>:</td>
+              <td><span class="boatQuantity">2</span></td>
+            </tr>
+            <tr>
+              <td style="color: gray">Boat ID</td>
+              <td style="color: gray"><span class="boatId">007</span></td>
+              <td> <strong>Boat status</strong>:</td>
+              <td><span class="boatStatus">For Sale</span><br /> </td>
+            </tr>
+            <br />
+          </table>
+
+          <button class="btn-toggleBoatStatus" id="btn-toggleBoatStatus" type="button" data-id="0">
+            For Sale/Not For Sale toggle
+          </button>
+          <span id="toggleBoatStatus-result" style="padding-left:5px;"></span>
+          <br />
+          <button class="btn-removeBoat" id="btn-removeBoat" type="button" data-id="0">
+            Remove from stock
+          </button>
+          <span id="removeBoat-result" style="padding-left:5px;"></span>
+          <br />
+        </div> <!-- BOAT TEMPLATE -->
+
+
+        <br /><br />
+
+
+        <!-- ADD BOAT -->
+        <div id="showAddBoats" style="display:none;">
+          <h4 style="padding-left:240px;">Add boats</h4>
+          <form id="input-addBoat">
+            <label align="right" style="width: 240px;">Boat name / type</label>
+            <input id="data-addBoatName" placeholder="e.g. Empacher Racing Eight" type="text" size="53" autocomplete="off">
+            <span id="addBoatName-result" style="padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">Boat description</label>
+            <input id="data-addBoatDescription" placeholder="e.g. Brand new eight, with riggers. Crew weight 90kg" type="text" size="53"
+              autocomplete="off">
+            <span id="addBoatDescription-result" style="padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">ETH Price</label>
+            <input id="data-addBoatPrice" placeholder="0" type="text" size="12" autocomplete="off">
+            <span id="addBoatPrice-result" style="padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;">Quantity</label>
+            <input id="data-addBoatQuantity" placeholder="0" type="text" size="12" autocomplete="off">
+            <span id="addBoatQuantity-result" style="padding-left:5px;"></span>
+            <br />
+
+            <label align="right" style="width: 240px;"></label>
+            <button id="btn-addBoat" class="btn-addBoat">Add Boat</button>
+            <span id="addBoat-result" style="padding-left:5px;"></span>
+          </form>
+          <br /><br />
+        </div> <!-- SHOW ADD BOATS -->
+
+        <br />
+
+
+      </div> <!-- CONTROLS PAGE -->
+
+
+      <div id="boatMarketPage" class="boatMarketPage">
+        <h3 id="boatMarketStatus" class="boatMarketStatus">Boats for Sale!</h3>
+
+        <!-- SHOW BOATS -->
+        <div id="boatMarket" class="row" style="boatMarket"></div>
+
+        <!-- BOAT MARKET TEMPLATE-->
+        <div id="boatMarketTemplate" style="display: none;">
+          <table>
+            <tr>
+              <td style="width: 180px;"><strong>Name</strong>:</td>
+              <td style="width: 240px;"><span class="boatName">Empacher Racing Eight</span></td>
+              <td style="width: 140px;"><strong>Price (ETH)</strong>:</td>
+              <td><span class="boatPrice">120</span></td>
+            </tr>
+
+            <tr>
+              <td> <strong>Description</strong>:</td>
+              <td><span class="boatDescription">Brand new racing shell with riggers, 90kg
+                  crew weight</span></td>
+              <td><strong>Quantity in stock</strong>:</td>
+              <td><span class="boatQuantity">2</span></td>
+            </tr>
+
+            <tr>
+              <td style="color: gray">Boat ID</td>
+              <td style="color: gray"><span class="boatId">007</span></td>
+              <td> <strong>Boat Club Name</strong>:</td>
+              <td><span class="boatClubName">London Rowing Club</span><br /> </td>
+            </tr>
+
+            <tr>
+              <td style="color: gray">Club ID</td>
+              <td style="color: gray"><span class="clubId">007</span></td>
+              <td> <strong>Club Location</strong>:</td>
+              <td><span class="clubLocation">Putney, SW15</span><br /> </td>
+            </tr>
+            <br />
+          </table>
+
+          Number to buy: <select class="btn-quantity" id="btn-quantity" name="boatId1"></select><br />
+          <button class="btn-buyBoat" id="btn-buyBoat" type="button" data-id="0">
+            Buy this boat
+          </button><span id="buyBoat-result" style="padding-left:5px;"></span>
+          <br />
+
+        </div> <!-- BOAT MARKET TEMPLATE -->
+      </div> <!-- BOAT MARKET PAGE -->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/web3.min.js"></script>
+      <script src="js/truffle-contract.js"></script>
+      <script src="js/app.js"></script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+
+ROPES
+
+truffle migrate --network ropsten
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+Try: npm install --save truffle-hdwallet-provider@web3-one
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'ropsten-fork'
+> Network id:      3
+> Block gas limit: 8000000
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.999483676
+   > gas used:            258162
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000516324 ETH
+
+   -------------------------------------
+   > Total cost:         0.000516324 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'ReentrancyGuard'
+   ---------------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.99930809
+   > gas used:            60765
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00012153 ETH
+
+
+   Deploying 'SafeMath'
+   --------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.999158338
+   > gas used:            74876
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000149752 ETH
+
+
+   Deploying 'ThamesBoats'
+   -----------------------
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.988508256
+   > gas used:            5325041
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.010650082 ETH
+
+   -------------------------------------
+   > Total cost:         0.010921364 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.011437688 ETH
+
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+Try: npm install --save truffle-hdwallet-provider@web3-one
+
+
+Starting migrations...
+======================
+> Network name:    'ropsten'
+> Network id:      3
+> Block gas limit: 8000000
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x6496c2020a5367aa998e46a43ea996d8367d88944a3c09bffb08fc52f3b8f029
+   > Blocks: 0            Seconds: 4
+   > contract address:    0xaAece6F846882828595c05eAAaA6D999c293738d
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.99453676
+   > gas used:            273162
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00546324 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00546324 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'ReentrancyGuard'
+   ---------------------------
+   > transaction hash:    0x35de856fb2412a4494ff78c01c1c4c63668ef5de73525beab1c36cf0a3f2dadc
+   > Blocks: 0            Seconds: 12
+   > contract address:    0x974E3586b64953046a6081e124863Fa4812dD69f
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.9922769
+   > gas used:            70965
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0014193 ETH
+
+
+   Deploying 'SafeMath'
+   --------------------
+   > transaction hash:    0x145d55e9ddee347d0dc4e8bfbad1ba2b1372799542d07bb7164d7f4b1e0f02be
+   > Blocks: 0            Seconds: 12
+   > contract address:    0xbb768f445EfF173aD18262A550bF6e208eA1Be43
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.99077938
+   > gas used:            74876
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00149752 ETH
+
+
+   Deploying 'ThamesBoats'
+   -----------------------
+   > transaction hash:    0x3ba1735d344eef498113957f99f3aca1d2bb598af6f4e4fcaf15441afa4a34dc
+   > Blocks: 0            Seconds: 4
+   > contract address:    0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+   > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
+   > balance:             0.88267056
+   > gas used:            5405441
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.10810882 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.11102564 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.11648888 ETH
+
