@@ -58,7 +58,11 @@ git clone the project directory to your local file system:
 ```bash
 git clone https://github.com/ryanwdavies/final-project-ThamesBoats.git
 ```
-Note: The artefacts in the project are configured to use socket: http://127.0.0.1:8545 (same as http://localhost:8545). Ganache GUI defaults to port 7545 and should be configured in the settings to use port 8545.
+Note: 
+
+The artefacts in the project are configured to use socket: http://127.0.0.1:8545 (same as http://localhost:8545). Ganache GUI defaults to port 7545 and should be configured in the settings to use port 8545.
+
+The 12 word mnemonic in truffle should be seeded in the MetaMask browser extension so that MetaMask can sign for and display those same balances.
 
 #### Compile, Migrate and Test Thames Boats 
 Ensure that Ganache is running and listening on port 8545.
@@ -117,51 +121,85 @@ NOTE: setting 'debug = true' will give verbose output.
 ```
 
 
+### Web interface configuration and 
 
-#### Web interface confugration and 
+##### Install node packages 
+We install the Node required packages:
+ing, merging, and uploading file modifications.
 Here we install required Node packages and launch lite-server:
 ```
 cd ../app
 npm install
 npm start
 ```
-
+The list-server should launch Thames Boats in its full glory on port 3000 (or the next highest available port). When you navigate to the Boat Market page MetaMask will prompt for permission to connect.
 ```
 Inline-style: 
-![alt text](https://github.com/ryanwdavies/final-project-ThamesBoats/blob/master/app/www/images/screenshot.png "Thames Boats")
-
+![alt text](https://github.com/ryanwdavies/final-project-ThamesBoats/blob/master/app/www/images/screenshot.png) "Thames Boats"
 ```
 
-##### Install node packages 
-We install the Node required packages:
-ing, merging, and uploading file modifications.
 
-There are two types of synchronization and they can complement each other:
 
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
 
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
 
-## Open a file
+## Responding to the project requirements
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
 
-## Save a file
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
 
-## Synchronize a file
+#### User Interface Requirements:
+The requirement listed below are demonstrated in the UI. Please note, the page may need refreshing to update with the latest results, since the UI is very simple.
+* *Run the app on a dev server locally for testing/grading*
+* *You should be able to visit a URL and interact with the application*
+* *App recognizes current account*
+* *Sign transactions using MetaMask or uPort*
+* *Contract state is updated*
+* *Update reflected in UI*
 
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
 
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
+#### Test Requirements:
+Thames Boats has seven tests written in JavaScript. These test are commented in the "*thamesboats.test.js*" file. They are written to test key aspects of the application, and to accommodate different types of test (catching revert, use of BigNumber for arithmetic, funds transactions, and checking event output).
 
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
+A problem was encountered writing testing in Solidity related to use of DeployedAddresses() and Payable address types, and I have raised this with the Truffle team (on Gitter and Github). Comments on this below, *see Project experiences*.
 
-## Manage file synchronization
+* *Write 5 tests for each contract you wrote*
+* *Solidity or JavaScript*
+* *Explain why you wrote those tests*
+* *Tests run with truffle test*
 
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+#### Design Pattern Requirements:
+A discussion of the design pattern choices, and of the circuit breaker (the toggle to suspend the market) is provided in *design_pattern_desicions.md*.
+* *Implement a circuit breaker (emergency stop) pattern*
+* *What other design patterns have you used / not used?*
+* *Why did you choose the patterns that you did?*
+* *Why not others?*
+
+
+#### Security Tools / Common Attacks
+*design_pattern_desicions.md* is included in the project root directory to explain key design choices,  highlights common attacks which may affect Thames Boats, how these can protected against, and how those countermeasures are implemented in the project.
+* *Explain what measures you’ve taken to ensure that your contracts are not susceptible to common attacks*
+
+#### Use of a library or EthPM package
+Thames Boats makes use of two artefacts from Open Zeppelin; SafeMath and ReentrancyGuard. These are discussed in the avoiding common attacks MD.
+
+
+#### Deployment on test network (Rinkerby)
+Thames Boats has been deploy, in all of its glory, on the Rinkerby test network. The address is included in *deployed_addresses.txt*. Discussed there is the difficulty adding the code to EtherScan, where attempts to add SafeMath fail with "*The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code*"
+
+https://rinkeby.etherscan.io/address/0xf8327d2d33a88e7767457dc58c0d70072e3831dd#code
+
+[Connected Thames Boats web application](https://ipfs.io/ipns/QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS/) (IPFS address)
+<a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a>
+
+### Stretch requirements
+
+The web artefact have been deployed on IPFS.
+
+
+## Project experiences
+
+DeployedAddresses
+EtherScan code / flattened
+_boatId docstrings
 
 
