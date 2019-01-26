@@ -1,11 +1,10 @@
 Rinkerby, ThamesBoats: 0xf8327D2D33a88E7767457Dc58C0d70072E3831dD
 
 
-
 /**
   Notes: 
 
-  Contracts and libraries are deployed on Rinkerby
+  Contracts and libraries are deployed on Rinkerby using:
   Optimizer: enabled
   Runs: 200
  
@@ -22,9 +21,11 @@ Rinkerby, ThamesBoats: 0xf8327D2D33a88E7767457Dc58C0d70072E3831dD
 
 
   Note:
-  The code for ReentrancyGuard has been added to EtherScan. It was necessary to set Optimization to No on 
-  Etherscan for the system to match the input Solidity to the deployed contract bytecode, despite the contract
-  having been deployed from Truffle with optimization on (200).
+
+  ReentrancyGuard: The code for ReentrancyGuard has been added to EtherScan. It was necessary to set Optimization to No on 
+  Etherscan for the system to match the input Solidity to the deployed contract bytecode, despite the contract having
+  been deployed from Truffle with optimization on (200).
+
 
   Attempts to add the same code to EtherScan SafeMath failed, despite following the same procedure (and attempting
   the same from Remix). The error received was:
@@ -35,6 +36,7 @@ Rinkerby, ThamesBoats: 0xf8327D2D33a88E7767457Dc58C0d70072E3831dD
   Attempts to enter the Solidity contract code failed on EtherScan, ensuring to match optimization and compiler versions (v0.5.2+commit.1df8f40c).
 
   ThamesBoats is dependant on SafeMath, and upload was not possible.
+
 */
 
 
