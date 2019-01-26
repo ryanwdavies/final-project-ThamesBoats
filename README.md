@@ -209,6 +209,20 @@ https://rinkeby.etherscan.io/address/0xf8327d2d33a88e7767457dc58c0d70072e3831dd#
 
 The web artefact have been deployed on IPFS.
 
+ipfs add -r www
+
+ipfs name publish QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+Published to QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS: /ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+
+ipfs pin add QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP 
+
+
+ ipfs name resolve QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS
+/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+
+
+
+https://medium.com/coinmonks/how-to-add-site-to-ipfs-and-ipns-f121b4cfc8ee
 
 ## Project experiences
 
