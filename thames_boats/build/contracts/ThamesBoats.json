@@ -32930,8 +32930,8 @@
     "1": {
       "events": {},
       "links": {},
-      "address": "0x904a8edF000a7484B156db77C274df1F3B9A1aaE",
-      "transactionHash": "0xf3eec6e45f55d6a13910b967f7a4bfab186078031904b48e37989e08538df794"
+      "address": "0x16838aF5ffd5D59d07365f677d8EF916602c26Eb",
+      "transactionHash": "0x2ff19ac6374e1e8cfd4eae4b4e107d2438027107234b6fe1df01296da5c2f724"
     },
     "3": {
       "events": {},
@@ -32953,7 +32953,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-26T08:31:44.127Z",
+  "updatedAt": "2019-01-26T16:20:04.095Z",
   "devdoc": {
     "author": "Ryan Davies",
     "methods": {

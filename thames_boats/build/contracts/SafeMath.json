@@ -2419,8 +2419,8 @@
     "1": {
       "events": {},
       "links": {},
-      "address": "0xD22D96dD31dF1867476377a0b71aeD99ff4119fe",
-      "transactionHash": "0x87ba439848ee8872e9aef5cc9dd9f3565e41d3e8f56e17714ff00a4090a1a34a"
+      "address": "0xbb768f445EfF173aD18262A550bF6e208eA1Be43",
+      "transactionHash": "0xb54a10ca22dae90af1bc14e00b621196f1ca25f89661bd067ee056908474ead2"
     },
     "3": {
       "events": {},
@@ -2436,7 +2436,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-26T08:31:44.118Z",
+  "updatedAt": "2019-01-26T16:20:04.085Z",
   "devdoc": {
     "details": "Math operations with safety checks that throw on error",
     "methods": {},

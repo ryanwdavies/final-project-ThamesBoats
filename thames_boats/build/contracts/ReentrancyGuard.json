@@ -583,8 +583,8 @@
     "1": {
       "events": {},
       "links": {},
-      "address": "0x8bd8379a359ef7aaE3D6C2Aa86ad97310B191fE4",
-      "transactionHash": "0xa6c5e39348c7b9d3e7704ef4b3d7fa4ff31eacc00cabab093d376ab55e6bf27e"
+      "address": "0x974E3586b64953046a6081e124863Fa4812dD69f",
+      "transactionHash": "0xe2d9f3e726d51378dd62fc9bf4cc49ce86b53517f44b97cd7cbf868625275264"
     },
     "3": {
       "events": {},
@@ -600,7 +600,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-26T08:31:44.119Z",
+  "updatedAt": "2019-01-26T16:20:04.086Z",
   "devdoc": {
     "author": "Remco Bloemen <remco@2π.com>",
     "methods": {},

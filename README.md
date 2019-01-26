@@ -75,7 +75,7 @@ Ensure that Ganache is running and listening on port 8545.
 #### Install node packages 
 We install the Node required packages:
 ```bash
-cd thames_boats
+cd final-project-ThamesBoats/thames_boats
 npm install 
 ```
 
