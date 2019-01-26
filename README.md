@@ -13,4 +13,13 @@ npm install truffle-assertions
 npm install bignumber.js
 
 TESTs add a test to capture revert, underpayment
-n
+
+Ropsten
+https://ipfs.io/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP/index.html
+
+ipfs name publish QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+
+
+Published to QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS: /ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+
+ipfs name resolve QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS

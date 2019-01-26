@@ -1,4 +1,4 @@
-Rinkerby, ThamesBoats: 0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+Rinkerby, ThamesBoats: 0xf8327D2D33a88E7767457Dc58C0d70072E3831dD
 
 
 
@@ -11,39 +11,37 @@ Rinkerby, ThamesBoats: 0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
  
 
   ReentrancyGuard
-  Address: 0x974E3586b64953046a6081e124863Fa4812dD69f
-  Code: https://rinkeby.etherscan.io/address/0x974e3586b64953046a6081e124863fa4812dd69f#code
+  Address: 0xF71FC5A00f805a4183A76938d75201bc053926A9
+  https://rinkeby.etherscan.io/address/0xf71fc5a00f805a4183a76938d75201bc053926a9#code
 
   SafeMath
-  Address: 0xbb768f445EfF173aD18262A550bF6e208eA1Be43
+  Address: 0x5d2B3Aa11F79a0E2483862F4f401F8FC465723bE
 
   ThamesBoats:
-  0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+  Address: 0xf8327D2D33a88E7767457Dc58C0d70072E3831dD
 
 
   Note:
-  The code for ReentrancyGuard has been added to EtherScan.
+  The code for ReentrancyGuard has been added to EtherScan. It was necessary to set Optimization to No on 
+  Etherscan for the system to match the input Solidity to the deployed contract bytecode, despite the contract
+  having been deployed from Truffle with optimization on (200).
 
-  Attempts to add the same code to EtherScan SafeMath failed, despite following the same procedure (and attempting the same from Remix). The error received was:
+  Attempts to add the same code to EtherScan SafeMath failed, despite following the same procedure (and attempting
+  the same from Remix). The error received was:
 
-  >> Sorry! The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code for Address 0xbb768f445EfF173aD18262A550bF6e208eA1Be43.
+  >> Sorry! The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code for Address 0x5d2B3Aa11F79a0E2483862F4f401F8FC465723bE).
   >> Unable to Verify Contract Source Code.
 
   Attempts to enter the Solidity contract code failed on EtherScan, ensuring to match optimization and compiler versions (v0.5.2+commit.1df8f40c).
 
   ThamesBoats is dependant on SafeMath, and upload was not possible.
-
 */
-
 
 
 /**
   Truffle output:
 
-
- $ truffle deploy --network rinkerby
-
-
+truffle migrate --network rinkerby
 ⚠️  Important ⚠️
 If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
 Try: npm install --save truffle-hdwallet-provider@web3-one
@@ -53,7 +51,7 @@ Migrations dry-run (simulation)
 ===============================
 > Network name:    'rinkerby-fork'
 > Network id:      4
-> Block gas limit: 7043104
+> Block gas limit: 7000000
 
 
 1_initial_migration.js
@@ -62,14 +60,14 @@ Migrations dry-run (simulation)
    Deploying 'Migrations'
    ----------------------
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.099483804
-   > gas used:            258098
+   > balance:             1.981614956
+   > gas used:            258162
    > gas price:           2 gwei
    > value sent:          0 ETH
-   > total cost:          0.000516196 ETH
+   > total cost:          0.000516324 ETH
 
    -------------------------------------
-   > Total cost:         0.000516196 ETH
+   > Total cost:         0.000516324 ETH
 
 
 2_deploy_contracts.js
@@ -78,7 +76,7 @@ Migrations dry-run (simulation)
    Deploying 'ReentrancyGuard'
    ---------------------------
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.099308218
+   > balance:             1.98143937
    > gas used:            60765
    > gas price:           2 gwei
    > value sent:          0 ETH
@@ -88,7 +86,7 @@ Migrations dry-run (simulation)
    Deploying 'SafeMath'
    --------------------
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.099158466
+   > balance:             1.981289618
    > gas used:            74876
    > gas price:           2 gwei
    > value sent:          0 ETH
@@ -98,7 +96,7 @@ Migrations dry-run (simulation)
    Deploying 'ThamesBoats'
    -----------------------
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.088508384
+   > balance:             1.970639536
    > gas used:            5325041
    > gas price:           2 gwei
    > value sent:          0 ETH
@@ -111,7 +109,7 @@ Migrations dry-run (simulation)
 Summary
 =======
 > Total deployments:   4
-> Final cost:          0.01143756 ETH
+> Final cost:          0.011437688 ETH
 
 ⚠️  Important ⚠️
 If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
@@ -122,7 +120,7 @@ Starting migrations...
 ======================
 > Network name:    'rinkerby'
 > Network id:      4
-> Block gas limit: 7049981
+> Block gas limit: 6994661
 
 
 1_initial_migration.js
@@ -130,21 +128,21 @@ Starting migrations...
 
    Deploying 'Migrations'
    ----------------------
-   > transaction hash:    0x294987a3059ae9e8b0410c4d1a3075b4cde731ba0155070a154ada13937fcbad
-   > Blocks: 2            Seconds: 16
-   > contract address:    0xaAece6F846882828595c05eAAaA6D999c293738d
+   > transaction hash:    0xc88115a0431e5dd4e042dc7535472856e3da1ec5ebb8a7a29559538f23063428
+   > Blocks: 1            Seconds: 16
+   > contract address:    0xA69EAa4423A23e2809Ac46d6347f7e564EB4cF27
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.09453804
-   > gas used:            273098
+   > balance:             1.97666804
+   > gas used:            273162
    > gas price:           20 gwei
    > value sent:          0 ETH
-   > total cost:          0.00546196 ETH
+   > total cost:          0.00546324 ETH
 
 
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:          0.00546196 ETH
+   > Total cost:          0.00546324 ETH
 
 
 2_deploy_contracts.js
@@ -152,11 +150,11 @@ Starting migrations...
 
    Deploying 'ReentrancyGuard'
    ---------------------------
-   > transaction hash:    0x4e16007820a5791f4d33c7d93b8dc58dfecb2f34be110b2df5589b80dcf20b0d
-   > Blocks: 0            Seconds: 12
-   > contract address:    0x974E3586b64953046a6081e124863Fa4812dD69f
+   > transaction hash:    0x2386babc88e3fddfa1044ebf985c34a2724c147c7b69aa63eb3487758518ca9c
+   > Blocks: 0            Seconds: 8
+   > contract address:    0xF71FC5A00f805a4183A76938d75201bc053926A9
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.09227818
+   > balance:             1.97440818
    > gas used:            70965
    > gas price:           20 gwei
    > value sent:          0 ETH
@@ -165,11 +163,11 @@ Starting migrations...
 
    Deploying 'SafeMath'
    --------------------
-   > transaction hash:    0xb2d4066ec54c9b37a302e048078bf29b8130f038a17e82ae9b5bdce728cbd088
+   > transaction hash:    0xa08a7ce3c6a69643df3d27fe0a3bc8cd3be93affba88be8aea6148732db64282
    > Blocks: 0            Seconds: 8
-   > contract address:    0xbb768f445EfF173aD18262A550bF6e208eA1Be43
+   > contract address:    0x5d2B3Aa11F79a0E2483862F4f401F8FC465723bE
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             2.09078066
+   > balance:             1.97291066
    > gas used:            74876
    > gas price:           20 gwei
    > value sent:          0 ETH
@@ -178,11 +176,11 @@ Starting migrations...
 
    Deploying 'ThamesBoats'
    -----------------------
-   > transaction hash:    0x79fb05ed0e03f24ab2657c83566175c4eb1efab016ebc69b5ee4ce8709f995e1
+   > transaction hash:    0xa255149c33f41b1945e10110c10b9bd5d03034d9ca0bcf1b550b2d2e018e6a75
    > Blocks: 0            Seconds: 8
-   > contract address:    0x16838aF5ffd5D59d07365f677d8EF916602c26Eb
+   > contract address:    0xf8327D2D33a88E7767457Dc58C0d70072E3831dD
    > account:             0x6FC0265e56c9d88107316D5550f7D24a6918AdF7
-   > balance:             1.98267184
+   > balance:             1.86480184
    > gas used:            5405441
    > gas price:           20 gwei
    > value sent:          0 ETH
@@ -198,6 +196,6 @@ Starting migrations...
 Summary
 =======
 > Total deployments:   4
-> Final cost:          0.1164876 ETH
+> Final cost:          0.11648888 ETH
 
-*/
+

@@ -32939,6 +32939,12 @@
       "address": "0x16838aF5ffd5D59d07365f677d8EF916602c26Eb",
       "transactionHash": "0x3ba1735d344eef498113957f99f3aca1d2bb598af6f4e4fcaf15441afa4a34dc"
     },
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xf8327D2D33a88E7767457Dc58C0d70072E3831dD",
+      "transactionHash": "0xa255149c33f41b1945e10110c10b9bd5d03034d9ca0bcf1b550b2d2e018e6a75"
+    },
     "5777": {
       "events": {},
       "links": {},
@@ -32947,7 +32953,7 @@
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-25T15:45:02.161Z",
+  "updatedAt": "2019-01-26T08:31:44.127Z",
   "devdoc": {
     "author": "Ryan Davies",
     "methods": {

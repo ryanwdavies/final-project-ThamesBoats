@@ -2427,10 +2427,16 @@
       "links": {},
       "address": "0xbb768f445EfF173aD18262A550bF6e208eA1Be43",
       "transactionHash": "0x145d55e9ddee347d0dc4e8bfbad1ba2b1372799542d07bb7164d7f4b1e0f02be"
+    },
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0x5d2B3Aa11F79a0E2483862F4f401F8FC465723bE",
+      "transactionHash": "0xa08a7ce3c6a69643df3d27fe0a3bc8cd3be93affba88be8aea6148732db64282"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-25T15:45:02.149Z",
+  "updatedAt": "2019-01-26T08:31:44.118Z",
   "devdoc": {
     "details": "Math operations with safety checks that throw on error",
     "methods": {},
