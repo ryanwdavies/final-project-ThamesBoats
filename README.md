@@ -73,7 +73,7 @@ The 12 word mnemonic in truffle should be seeded in the MetaMask browser extensi
 Ensure that Ganache is running and listening on port 8545.
 
 #### Install node packages 
-We install the Node required packages:
+We install the Node required packages (bignumber.js, truffle-assertions):
 ```bash
 cd final-project-ThamesBoats/thames_boats
 npm install 
@@ -139,7 +139,7 @@ NOTE: setting 'debug = true' will give verbose output.
 ##### Install node packages 
 We install the Node required packages:
 ing, merging, and uploading file modifications.
-Here we install required Node packages and launch lite-server:
+Here we install required Node packages for lite-server and launch:
 ```
 cd ../app
 npm install
