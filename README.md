@@ -48,10 +48,15 @@ The following software prerequisites must be met to run Thames Boats. The instru
 
 
 <a href="https://www.liquidweb.com/kb/install-git-ubuntu-16-04-lts/" target="_blank">Git</a> 
+
 <a href="https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/" target="_blank">NodeJS, v8.9.4</a> (or later)
+
 <a href="https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/" target="_blank">npm v6</a>  (or later)
+
 <a href="https://truffleframework.com/docs/truffle/getting-started/installation" target="_blank">Truffle</a> (latest version)
+
 <a href="https://truffleframework.com/ganache" target="_blank">Ganache</a> (latest version)
+
 Either Chrome or FireFox with the MetaMask extension installed.
 
 git clone the project directory to your local file system:
@@ -92,7 +97,15 @@ Writing artifacts to ./build/contracts
 truffle migrate --reset
 ```
 ```
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
 ...
+...
+
 Summary
 > Total deployments:   4
 > Final cost:          0.00000000000583878 ETH
