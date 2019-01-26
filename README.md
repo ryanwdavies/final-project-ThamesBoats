@@ -42,8 +42,8 @@ LICENSE
 README.md
 ```
 
-### Installation Instructions
-#### Prerequisites 
+## Installation Instructions
+### Prerequisites 
 The following software prerequisites must be met to run Thames Boats. The instruction linked are for Ubuntu Linux. 
 
 
@@ -64,17 +64,17 @@ The artefacts in the project are configured to use socket: http://127.0.0.1:8545
 
 The 12 word mnemonic in truffle should be seeded in the MetaMask browser extension so that MetaMask can sign for and display those same balances.
 
-#### Compile, Migrate and Test Thames Boats 
+### Compile, Migrate and Test Thames Boats 
 Ensure that Ganache is running and listening on port 8545.
 
-##### Install node packages 
+#### Install node packages 
 We install the Node required packages:
 ```bash
 cd thames_boats
 npm install 
 ```
 
-##### Compile: 
+#### Compile: 
 ```bash
 truffle compile
 ```
@@ -87,7 +87,7 @@ Compiling ./contracts/ThamesBoats.sol...
 Writing artifacts to ./build/contracts
 ```
 
-##### Migrate:
+#### Migrate:
 ```
 truffle migrate --reset
 ```
@@ -189,6 +189,7 @@ Thames Boats has been deploy, in all of its glory, on the Rinkerby test network.
 https://rinkeby.etherscan.io/address/0xf8327d2d33a88e7767457dc58c0d70072e3831dd#code
 
 [Connected Thames Boats web application](https://ipfs.io/ipns/QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS/) (IPFS address)
+
 <a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a>
 
 ### Stretch requirements
@@ -198,8 +199,13 @@ The web artefact have been deployed on IPFS.
 
 ## Project experiences
 
+TODO
+
 DeployedAddresses
+
 EtherScan code / flattened
+
 _boatId docstrings
+
 
 
