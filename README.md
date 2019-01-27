@@ -1,4 +1,3 @@
-
 # Thames Boats 
 
 ### Backstory
@@ -33,7 +32,7 @@ Anyone with account is able to buy boats, the sales of which are recorded in a s
 
 The project can be accessed online here, which is connected to the <a href="https://rinkeby.etherscan.io/" target="_blank">Rinkerby</a> test network:
 
-https://ipfs.io/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+
 <a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a> 
 
 
@@ -207,15 +206,14 @@ Thames Boats makes use of two artefacts from Open Zeppelin; SafeMath and Reentra
 
 
 #### Deployment on test network (Rinkerby)
-Thames Boats has been deploy, (*in all of its glory!*), on the Rinkerby test network. The address is included in *deployed_addresses.txt*. Discussed there is the difficulty adding the code to EtherScan, where attempts to add SafeMath fail with "*The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code*"
+Thames Boats has been deploy, (*in all of its glory!*), on the Rinkerby test network. The address is included in *deployed_addresses.txt*. Discussed there is the difficulty adding the code to EtherScan, where attempts to add SafeMath fail with "*The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code*". This has prevented adding of the Solidity code to the contract addresses on EtherScan.
 
 https://rinkeby.etherscan.io/address/0xf8327d2d33a88e7767457dc58c0d70072e3831dd#code
+[Thames Boats web application](https://ipfs.io/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP) (IPFS address)
+<a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a> (IPNS address)
 
-[Connected Thames Boats web application](https://ipfs.io/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm) (IPFS address)
 
-<a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a>
-
-### Stretch requirements
+## Stretch requirements
 
 The web artefacts have been deployed on IPFS, and published from an IPFS daemon running on a server which is always available with port 4001 open (the swarm port). 
 
@@ -246,25 +244,69 @@ thamesboats.ryanwdavies.com. 3470 IN  TXT  "dnslink=/ipfs/QmcuUhfbVBHxbGzhJX1kNb
 ```
 (the IPNS lookup is not working properly here and needs resolving - for now we hard-code to the IPFS hash, where the preference would be to publish the IPNS reference).
 
-[notes](https://hackernoon.com/ten-terrible-attempts-to-make-the-inter-planetary-file-system-human-friendly-e4e95df0c6fa), [notes](https://medium.com/coinmonks/how-to-add-site-to-ipfs-and-ipns-f121b4cfc8ee)
+([notes](https://hackernoon.com/ten-terrible-attempts-to-make-the-inter-planetary-file-system-human-friendly-e4e95df0c6fa), [notes](https://medium.com/coinmonks/how-to-add-site-to-ipfs-and-ipns-f121b4cfc8ee))
 
 
-## Project experiences
+## Improvements
+Thames Boats has a poor UI and would be improve very many times with the hand of an experienced web developer; the few days I left myself to learn React proved woefully inadequate(!)
 
-TODO
 
-DeployedAddresses
 
-EtherScan code / flattened
-
-_boatId docstrings
-
-Improvements
--
 add event watcher, automate page refresh / UI changes - re-render
 App.contracts
 UI
 
 
 
+## Project experiences
 
+
+
+### Testing in Solidity DeployedAddresses()
+I wrote Truffle tests in Solidity and encountered a problem with payable address types and the DeployedAddresses Truffle function, which seems like a bug affecting Solidity ^0.5.0. I reached out on Truffle Gitter and have subsequently raised the matter on Github:
+[Truffle testing with Solidity ^0.5; DeployedAddresses not supporting payable addresses #1640](https://github.com/trufflesuite/truffle/issues/1640)
+
+
+### Adding Code to EtherScan
+Adding code to EtherScan seem to have issues. 
+
+I had three contracts to add (ReentrancyGuard, SafeMath, ThamesBoats). All had been compiled and migrated to Rinkerby and Ropsten, and it was only possible to add code for ReentrancyGuard. I tried different approaches (via Truffle and Remix, with and without optimisation, and using the [Truffle flattener](https://www.npmjs.com/package/truffle-flattener).
+```
+Sorry! The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code for Address 0x5d2B3Aa11F79a0E2483862F4f401F8FC465723bE).
+```
+
+The only success I had was with ReentrancyGuard - there the approach need to compile and migrate with optimisation enabled, and then to upload the code to EtherScan with optimisation *disabled*.  Very odd and I was unable to make progress with SafeMath (which then ThamesBoats is dependent on).
+
+### DocStrings
+I thought this would be the easy part(!)
+
+The Truffle docstring parser raised *DocstringParsingError* stating that the variable declared in the docstring was not found in the function, where clearly it is: 
+```
+  /// @notice Mark the given club as Open
+  /// @dev May only be called by the owner of the given club
+  /// @param _clubId ID of the club to be opened
+  function openClub(uint256 _clubId)
+      external
+      ownsThisClub(_clubId)
+      ifMarketNotSuspended
+  {
+      if(clubs[_clubId].clubStatus != ClubStatus.Removed) {
+          clubs[_clubId].clubStatus = ClubStatus.Open;
+          emit LogClubOpen(_clubId, msg.sender);
+      }
+  }
+```
+truffle test, yielded:
+```
+DocstringParsingError: Documented parameter "_clubId" not found in the parameter list of the function.
+```
+
+This was really baffling. I prefer to "_" prefix arguments so that parameters within the function code are denoted. This is common practice.  
+
+Using the *same code* in Remix, and remix (which does validate docstrings) did not complain. So it appears Truffle and Remix are yielding different results.
+
+Reluctantly I refactored the code to remove the "_" prefix from the argument names. 
+
+I notice that the argument "*_address*" was accepted by Truffle, whereas all others (_clubId, _boatId, _quantity, _price) received the complaint above. 
+
+Others online had similar. I will revisit and raise with the Truffle team if appropriate.
