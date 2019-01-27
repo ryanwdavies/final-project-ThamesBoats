@@ -147,8 +147,6 @@ NOTE: setting 'debug = true' will give verbose output.
 ### Web interface configuration  
 
 ##### Install node packages 
-We install the Node required packages:
-ing, merging, and uploading file modifications.
 Here we install required Node packages for lite-server and launch:
 ```
 cd ../app
