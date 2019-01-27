@@ -1,3 +1,4 @@
+
 # Thames Boats 
 
 ### Backstory
@@ -270,7 +271,7 @@ I wrote Truffle tests in Solidity and encountered a problem with payable address
 ### Adding Code to EtherScan
 Adding code to EtherScan seem to have issues. 
 
-I had three contracts to add (ReentrancyGuard, SafeMath, ThamesBoats). All had been compiled and migrated to Rinkerby and Ropsten, and it was only possible to add code for ReentrancyGuard. I tried different approaches (via Truffle and Remix, with and without optimisation, and using the [Truffle flattener](https://www.npmjs.com/package/truffle-flattener).
+I had three contracts to add (ReentrancyGuard, SafeMath, ThamesBoats). All had been compiled and migrated to Rinkerby and Ropsten, and it was only possible to add code for ReentrancyGuard. I tried different approaches (via Truffle and Remix, with and without optimisation, and using the [Truffle flattener](https://www.npmjs.com/package/truffle-flattener) and the process described [here](https://michalzalecki.com/how-to-verify-smart-contract-on-etherscan/)), which all yielded:
 ```
 Sorry! The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code for Address 0x5d2B3Aa11F79a0E2483862F4f401F8FC465723bE).
 ```

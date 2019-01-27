@@ -32,7 +32,7 @@ Loops have been avoided to reduce gas costs and the risk that the cost of a loop
 There are three ways to forcibly send Ether to a contract: sending with a selfdestruct function from another contract; by [calculating the contract address](https://ethereum.stackexchange.com/questions/760/how-is-the-address-of-an-ethereum-contract-computed) before the contract is created and funding that address; or by setting the contract address as the a mining reward coinbase transaction address. Since this is not preventable it is not good practice to require that the behaviour of the contract should be determined by the balance of the contract address itself. The ThamesBoats contract has no such dependancy.
 
 #### Security Analysis with Mythril
-We make use of Mythril for contract verification, *please see the section below*.
+There are many [security tools](https://consensys.github.io/smart-contract-best-practices/security_tools/) available for contract analysis. We make use of Mythril for contract verification, *please see the section below*.
 
 
 ### Future Areas for Development 
@@ -45,7 +45,7 @@ The security of contract could be improved further by:
 ## Security Analysis with Mythril
 We use [Mythril](https://mythx.io/) to check against certain contract [vulnerabilities](https://github.com/ConsenSys/mythril-classic/wiki/Mythril-Detection-Capabilities). 
 
-The analysis highlights a potential Integer Overflow venerability. We discount this as a vulnerability since to overflow uint256 by calling a function would require an unfeasible amount of computation.
+The analysis highlights a potential Integer Overflow venerability. We discount this as a vulnerability since to overflow uint256 by calling a function 2^256 times would require an unfeasible amount of computation.
 
 ```
 myth -xo markdown ThamesBoats.sol --max-depth 10
