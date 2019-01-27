@@ -145,7 +145,7 @@ NOTE: setting 'debug = true' will give verbose output.
 ```
 
 
-### Web interface configuration and 
+### Web interface configuration  
 
 ##### Install node packages 
 We install the Node required packages:
@@ -251,12 +251,7 @@ thamesboats.ryanwdavies.com. 3470 IN  TXT  "dnslink=/ipfs/QmcuUhfbVBHxbGzhJX1kNb
 ## Improvements
 Thames Boats has a poor UI and would be improve very many times with the hand of an experienced web developer; the few days I left myself to learn React proved woefully inadequate(!)
 
-
-
-add event watcher, automate page refresh / UI changes - re-render
-App.contracts
-UI
-
+I would have liked to make the UI more dynamic in a React-style, with event listeners on events emitted to update part of the UI, and that will need to be in a later phase, and after my React course.
 
 
 ## Project experiences
