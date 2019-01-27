@@ -7,7 +7,6 @@ The river Thames in London has a  <a href="https://en.wikipedia.org/wiki/Rowing_
 
 Thames Boats is a market place to serve the rowing community based on the River Thames, centred in London around London. The aim of the boat market is to allow clubs to sell new and second hand and new boats.
 
-Thames Boats is a market place for rowing clubs, based on the river Thames, to sell boats within the rowin
 
 ### Introduction
 
