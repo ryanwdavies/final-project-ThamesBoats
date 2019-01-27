@@ -1,3 +1,4 @@
+
 # Thames Boats 
 
 ### Introduction
@@ -146,10 +147,6 @@ npm install
 npm start
 ```
 The list-server should launch Thames Boats in its full glory on port 3000 (or the next highest available port). When you navigate to the Boat Market page MetaMask will prompt for permission to connect.
-```
-Inline-style: 
-![alt text](https://github.com/ryanwdavies/final-project-ThamesBoats/blob/master/app/www/images/screenshot.png) "Thames Boats"
-```
 
 
 
@@ -158,7 +155,10 @@ Inline-style:
 ## Responding to the project requirements
 
 
+#### Smart  Contract code
+The ThamesBoats smart contract code in commented using Natspec-style comment and Doxgen strings. An issue was encountered in this area with the Truffle docstring parser, *(please see Project experiences below)*. The contract also adheres to the [Solidity style guide](https://solidity.readthedocs.io/en/v0.5.2/style-guide.html) to follow the recommend contract layout and style points.
 
+* *Smart Contract code should be commented according to the [specs in the documentation](https://solidity.readthedocs.io/en/v0.4.21/layout-of-source-files.html#comments)*
 
 #### User Interface Requirements:
 The requirement listed below are demonstrated in the UI. Please note, the page may need refreshing to update with the latest results, since the UI is very simple.
@@ -197,32 +197,45 @@ Thames Boats makes use of two artefacts from Open Zeppelin; SafeMath and Reentra
 
 
 #### Deployment on test network (Rinkerby)
-Thames Boats has been deploy, in all of its glory, on the Rinkerby test network. The address is included in *deployed_addresses.txt*. Discussed there is the difficulty adding the code to EtherScan, where attempts to add SafeMath fail with "*The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code*"
+Thames Boats has been deploy, (*in all of its glory!*), on the Rinkerby test network. The address is included in *deployed_addresses.txt*. Discussed there is the difficulty adding the code to EtherScan, where attempts to add SafeMath fail with "*The [Deployed Contract ByteCode (secondary check)] does NOT match the Compiled Code*"
 
 https://rinkeby.etherscan.io/address/0xf8327d2d33a88e7767457dc58c0d70072e3831dd#code
 
-[Connected Thames Boats web application](https://ipfs.io/ipns/QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS/) (IPFS address)
+[Connected Thames Boats web application](https://ipfs.io/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm) (IPFS address)
 
 <a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a>
 
 ### Stretch requirements
 
-The web artefact have been deployed on IPFS.
+The web artefacts have been deployed on IPFS:
 
+```bash
 ipfs add -r www
 
-ipfs name publish QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
-Published to QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS: /ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+$  ipfs pin add QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+pinned QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm recursively
 
-ipfs pin add QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP 
+$   ipfs name publish QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+Published to QmcfDBw6MrQZCTARawXJS3BZLaAPBrAvMuwbosR3AXoYqZ: /ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+
+$ ipfs name resolve /ipns/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
 
 
- ipfs name resolve QmNunBt8LKcZiJ1xeW9U41Qgp8mZfwqWPTwEjagqspDEcS
-/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+IPFS: /ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+IPNS: /ipns/QmcfDBw6MrQZCTARawXJS3BZLaAPBrAvMuwbosR3AXoYqZ
+```
 
+Add a TXT record for thamesboats.ryanwdavies.com  "dnslink=/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm"
+```
+dig TXT thamesboats.ryanwdavies.com|grep ipfs
 
+thamesboats.ryanwdavies.com. 3470 IN  TXT  "dnslink=/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm"
+```
+(the IPNS lookup is not working properly here and needs resolving - for now we hard-code to the IPFS hash, where the preference would be to publish the IPNS reference).
 
-https://medium.com/coinmonks/how-to-add-site-to-ipfs-and-ipns-f121b4cfc8ee
+[notes](https://hackernoon.com/ten-terrible-attempts-to-make-the-inter-planetary-file-system-human-friendly-e4e95df0c6fa), [notes](https://medium.com/coinmonks/how-to-add-site-to-ipfs-and-ipns-f121b4cfc8ee)
+
 
 ## Project experiences
 
@@ -233,6 +246,7 @@ DeployedAddresses
 EtherScan code / flattened
 
 _boatId docstrings
+
 
 
 
