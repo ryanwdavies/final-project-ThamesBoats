@@ -1,11 +1,20 @@
 
 # Thames Boats 
 
+### Backstory
+
+The river Thames in London has a  <a href="https://en.wikipedia.org/wiki/Rowing_on_the_River_Thames" target="_blank">vibrant community</a> of rowers and rowing clubs, and has a deep history steeped in tradition. 
+
+Thames Boats is a market place to serve the rowing community based on the River Thames, centred in London around London. The aim of the boat market is to allow clubs to sell new and second hand and new boats.
+
+Thames Boats is a market place for rowing clubs, based on the river Thames, to sell boats within the rowin
+
 ### Introduction
 
-Thames Boats is a market place for rowing clubs on the river Thames to sell boats within the rowing community. The river Thames in London has a  <a href="https://en.wikipedia.org/wiki/Rowing_on_the_River_Thames" target="_blank">vibrant community</a> of rowers and rowing clubs, and has a deep history steeped in tradition.
+Thames Boats has been produced for the  [ConsenSys developer bootcamp](https://consensys.net/academy/bootcamp) final assignment.
 
-Thames Boats is a market place to serve the rowing community based on the River Thames, centred in London around London. The aim of the boat market is to allow clubs to sell second hand and new boats, and sometimes new boats.
+
+The users stories is the application, of those using Thames Boats, are:
 
 #### Owner
 The Owner can suspend and resume the market place from trading, in the event of a system bug or problem. The owner can add (and revoke) a Market Admin role, so that others may join in the oversight of the market place. 
@@ -24,6 +33,7 @@ Anyone with account is able to buy boats, the sales of which are recorded in a s
 
 The project can be accessed online here, which is connected to the <a href="https://rinkeby.etherscan.io/" target="_blank">Rinkerby</a> test network:
 
+https://ipfs.io/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
 <a href="https://ipfs.io/ipns/thamesboats.ryanwdavies.com" target="_blank">https://ipfs.io/ipns/thamesboats.ryanwdavies.com</a> 
 
 
@@ -207,30 +217,32 @@ https://rinkeby.etherscan.io/address/0xf8327d2d33a88e7767457dc58c0d70072e3831dd#
 
 ### Stretch requirements
 
-The web artefacts have been deployed on IPFS:
+The web artefacts have been deployed on IPFS, and published from an IPFS daemon running on a server which is always available with port 4001 open (the swarm port). 
 
 ```bash
-ipfs add -r www
+$ ipfs add -r www
+....
+added QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP www
 
-$  ipfs pin add QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
-pinned QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm recursively
+$ ipfs pin add QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+pinned QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP recursively
 
-$   ipfs name publish QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
-Published to QmcfDBw6MrQZCTARawXJS3BZLaAPBrAvMuwbosR3AXoYqZ: /ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+$ ipfs name publish QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
+Published to QmcfDBw6MrQZCTARawXJS3BZLaAPBrAvMuwbosR3AXoYqZ: /ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
 
 $ ipfs name resolve /ipns/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
 /ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
 
 
-IPFS: /ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm
+IPFS: /ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP
 IPNS: /ipns/QmcfDBw6MrQZCTARawXJS3BZLaAPBrAvMuwbosR3AXoYqZ
 ```
 
-Add a TXT record for thamesboats.ryanwdavies.com  "dnslink=/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm"
+Add a TXT record for thamesboats.ryanwdavies.com  "dnslink=/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP"
 ```
 dig TXT thamesboats.ryanwdavies.com|grep ipfs
 
-thamesboats.ryanwdavies.com. 3470 IN  TXT  "dnslink=/ipfs/QmciMBB8hhPPfmypqqR5eg9uwPRMtbCjUWbnG2sg3RTFZm"
+thamesboats.ryanwdavies.com. 3470 IN  TXT  "dnslink=/ipfs/QmcuUhfbVBHxbGzhJX1kNbE6iaxrQcwFFNFA8y3JCCioqP"
 ```
 (the IPNS lookup is not working properly here and needs resolving - for now we hard-code to the IPFS hash, where the preference would be to publish the IPNS reference).
 
@@ -246,6 +258,12 @@ DeployedAddresses
 EtherScan code / flattened
 
 _boatId docstrings
+
+Improvements
+-
+add event watcher, automate page refresh / UI changes - re-render
+App.contracts
+UI
 
 
 
